@@ -134,20 +134,37 @@ const countries = [
  */
 
 // Número total de infectados
+let num_infected_persons = persons.reduce((num_infected, person) => person.infected ? ++num_infected : num_infected,0)
+console.log(`Number of infected people: ${num_infected_persons}`)
 
 // Número total de sanos
+let num_healthy_persons = persons.reduce((num_healthy, person) => !person.infected ? ++num_healthy : num_healthy,0)
+console.log(`Number of healthy people: ${num_healthy_persons}`)
 
 // Numero total de infectados en los países (del array de países)
+let total_infected_population = countries.reduce((num_infected, country) => num_infected += country.infected,0)
+console.log(`Total of infected population: ${total_infected_population}`)
 
 // País con más infectados (del array de países)
+let max_infected_country = countries.reduce((max_country, country) => country.infected > max_country.infected ? max_country = country : max_country ,countries[0]).name
+console.log(`Country with more infections: ${max_infected_country}`)
 
 // Número de total de infectados del array de personas
+num_infected_persons = persons.reduce((num_infected, person) => person.infected ? ++num_infected : num_infected,0)
+console.log(`Number of infected people: ${num_infected_persons}`)
 
 // Array con nombre de todas las mascotas
+let pet_names = pets.map(pet => pet.name)
+console.log(`Pet names: ${pet_names}`)
 
 // Array con las personas infectadas del array de personas
+let infected_persons = persons.filter(person => person.infected).map(person => person.name)
+console.log(`Infected persons: ${infected_persons}`)
 
 // Array de españoles con perro
+let dogs = pets.filter(pet => pet.animal === "perro").map(pet => pet.name)
+let spanish_with_dogs = persons.filter(person => person.country === "ES" && dogs.some(dog => dog === person.pet)).map(person => person.name)
+console.log(`Spanish persons with dog: ${spanish_with_dogs}`)
 
 // Número de personas infectadas del array de personas
 
