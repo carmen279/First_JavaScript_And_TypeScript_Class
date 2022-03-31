@@ -85,7 +85,7 @@ export function executeExercisesDefaultImplementation() {
         return listwithnumbers;
       }),[ ])
   maxanimaltype = Object.keys(animalsandnumber).reduce((maxKey, key) => animalsandnumber[key] > animalsandnumber[maxKey] ? key : maxKey)
-  console.log(maxanimaltype)
+  console.log(`Most usual type of pet: ${maxanimaltype}`)
 
 // Número total de patas de las mascotas de las personas
   let persons_pets = persons.map(person => person.pet)

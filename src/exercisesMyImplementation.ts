@@ -86,8 +86,8 @@ export function executeExercisesMyImplementation() {
   let animalsandnumber = reduce(map(people_and_pets, person => person.petanimal), ((listwithnumbers, animal) => { listwithnumbers[animal] === undefined ? listwithnumbers[animal] = 1 : listwithnumbers[animal] += 1
         return listwithnumbers;
       }),[ ])
-  maxanimaltype = reduce(Object.keys(animalsandnumber), (maxKey, key) => animalsandnumber[key] > animalsandnumber[maxKey] ? key : maxKey, '')
-  console.log(maxanimaltype)
+  maxanimaltype = reduce(Object.keys(animalsandnumber), (maxKey, key) => animalsandnumber[key] > animalsandnumber[maxKey] ? key : maxKey)
+  console.log(`Most usual type of pet: ${maxanimaltype}`)
 
   // Número total de patas de las mascotas de las personas
   let persons_pets = map(persons, person => person.pet)

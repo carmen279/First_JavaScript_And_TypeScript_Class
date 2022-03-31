@@ -19,14 +19,19 @@ export function filter<A>(collection:A[], filter_condition:(arg: A) => boolean) 
   return new_array;
 }
 
-export function reduce <A,B> (collection:A[], reduce_function:(prev_value: B, arg:A) => B, initial_value?:B) :B {
+export function reduce <A> (collection:A[], reduce_function:(prev_value: any, arg:A) => any, initial_value : any = null) :any {
+  let value
+  let collectionToIterate
 
-  let value = initial_value
-
-  if (initial_value === undefined)
+  if (initial_value !== null) {
     value = initial_value
+    collectionToIterate = collection
+  } else {
+    value = collection[0]
+    collectionToIterate = collection.slice(1)
+  }
 
-  for (const element of collection)
+  for (const element of collectionToIterate)
     value = reduce_function(value, element)
 
   return value
