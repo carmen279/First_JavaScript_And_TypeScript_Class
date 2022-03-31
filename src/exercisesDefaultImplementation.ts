@@ -1,134 +1,5 @@
 "use strict";
-
-const persons = [
-  {
-    name: "Pedro",
-    age: 35,
-    country: "ES",
-    infected: true,
-    pet: "Troski",
-  },
-  {
-    name: "Elisabeth",
-    age: 14,
-    country: "UK",
-    infected: true,
-    pet: "Firulais",
-  },
-  {
-    name: "Pablo",
-    age: 25,
-    country: "ES",
-    infected: false,
-    pet: "Berritxu",
-  },
-  {
-    name: "Angela",
-    age: 18,
-    country: "DE",
-    infected: false,
-    pet: "Noodle",
-  },
-  {
-    name: "Boris",
-    age: 50,
-    country: "UK",
-    infected: true,
-    pet: "Leon",
-  },
-  {
-    name: "Donald",
-    age: 69,
-    country: "US",
-    infected: false,
-    pet: "Pence",
-  },
-];
-
-const pets = [
-  {
-    name: "Troski",
-    animal: "perro",
-  },
-  {
-    name: "Firulais",
-    animal: "perro",
-  },
-  {
-    name: "Berritxu",
-    animal: "loro",
-  },
-  {
-    name: "Noodle",
-    animal: "araña",
-  },
-  {
-    name: "Leon",
-    animal: "gato",
-  },
-  {
-    name: "Pence",
-    animal: "perro",
-  },
-];
-
-const animals = [
-  {
-    name: "perro",
-    legs: 4,
-  },
-  {
-    name: "araña",
-    legs: 8,
-  },
-  {
-    name: "gato",
-    legs: 4,
-  },
-  {
-    name: "loro",
-    legs: 2,
-  },
-  {
-    name: "gallina",
-    legs: 2,
-  },
-];
-
-// Población en millones
-const countries = [
-  {
-    code: "CN",
-    name: "China",
-    population: 1439,
-    infected: 81999,
-  },
-  {
-    code: "US",
-    name: "Estados Unidos",
-    population: 331,
-    infected: 112468,
-  },
-  {
-    code: "DE",
-    name: "Alemania",
-    population: 83,
-    infected: 56202,
-  },
-  {
-    code: "ES",
-    name: "España",
-    population: 46,
-    infected: 72248,
-  },
-  {
-    code: "UK",
-    name: "Reino Unido",
-    population: 67,
-    infected: 17301,
-  },
-];
-
+import {persons, pets, animals, countries} from './main.ts'
 
 /**
  * EJERCICIOS CON IMPLEMENTACIÓN POR DEFECTO
@@ -193,6 +64,8 @@ export function executeExercisesDefaultImplementation() {
 
 
 // A partir de las personas sacar el animal que tienen más personas como mascota
+
+  //IMPLEMENTACIÓN 1
   let animaltypes = pets.reduce((types, pet) => types.some(type => type === pet.animal) ? types : [...types, pet.animal], [])
   let maxanimaltype = null
   let maxanimaltypenum = 0
@@ -204,6 +77,15 @@ export function executeExercisesDefaultImplementation() {
     }
   }
   console.log(`Most usual type of pet: ${maxanimaltype}`)
+
+  //IMPLEMENTACIÓN 2
+  let animalsandnumber = people_and_pets
+      .map(person => person.petanimal)
+      .reduce(((listwithnumbers, animal) => { listwithnumbers[animal] === undefined ? listwithnumbers[animal] = 1 : listwithnumbers[animal] += 1
+        return listwithnumbers;
+      }),[ ])
+  maxanimaltype = Object.keys(animalsandnumber).reduce((maxKey, key) => animalsandnumber[key] > animalsandnumber[maxKey] ? key : maxKey)
+  console.log(maxanimaltype)
 
 // Número total de patas de las mascotas de las personas
   let persons_pets = persons.map(person => person.pet)
