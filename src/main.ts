@@ -1,6 +1,7 @@
 "use strict";
 import { executeExercisesMyImplementation } from './exercisesMyImplementation.ts';
 import { executeExercisesDefaultImplementation } from './exercisesDefaultImplementation.ts';
+import { playInvestigation } from './sospechosos.ts';
 
 export const persons = [
     {
@@ -130,7 +131,12 @@ export const countries = [
     },
 ];
 
+/*
 console.log("***EXERCISES WITH DEFAULT IMPLEMENTATION***")
 executeExercisesDefaultImplementation()
 console.log("***EXERCISES WITH MY OWN IMPLEMENTATION***")
 executeExercisesMyImplementation()
+ */
+
+//Ejercicio sospechosos
+playInvestigation()
